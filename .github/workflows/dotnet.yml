@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 3.1.x
+        dotnet-version: 3.1.0
     
     - name: Restore dependencies
       run: dotnet restore
@@ -32,7 +32,7 @@ jobs:
       
     - name: Zip Package
       run: 
-        zip -r ${{ github.workspace }}/out.zip *
+        zip -r deploy.zip . -x '*.git*'
         
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v20
@@ -43,6 +43,6 @@ jobs:
         environment_name: Aplicacaoteste-env
         version_label: ${{ github.run_id }}
         region: us-east-1
-        deployment_package: ${{ github.workspace }}/out.zip
+        deployment_package: ${{ github.workspace }}/deploy.zip
         
         
