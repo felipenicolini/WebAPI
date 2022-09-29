@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
-        /// Sumary is test
+        /// Sumary is tests
         /// </summary>
         /// <returns></returns>
         [HttpGet]
