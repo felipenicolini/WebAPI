@@ -32,7 +32,8 @@ jobs:
       
     - name: Zip Package
       run: 
-        zip -r deploy.zip . -x '*.git*'
+        cd ${{ github.workspace }}/out
+        zip -r ${{ github.workspace }}/out.zip *
         
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v20
@@ -43,6 +44,6 @@ jobs:
         environment_name: Aplicacaoteste-env
         version_label: ${{ github.run_id }}
         region: us-east-1
-        deployment_package: deploy.zip
+        deployment_package: ${{ github.workspace }}/out.zip
         
         
