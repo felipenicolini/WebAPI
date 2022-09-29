@@ -32,7 +32,6 @@ jobs:
       
     - name: Zip Package
       run: 
-        cd ${{ github.workspace }}/out
         zip -r deploy.zip . -x '*.git*'
         
     - name: Deploy to EB
