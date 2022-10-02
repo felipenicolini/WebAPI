@@ -28,7 +28,7 @@ jobs:
       run: dotnet test --no-build --no-restore --verbosity normal
       
     - name: Publish
-      run: dotnet publish -c Release -o '${{ github.workspace }}/out'
+      run: dotnet publish -c Debug -o '${{ github.workspace }}/out'
       
     - name: Zip Package
       run: 
